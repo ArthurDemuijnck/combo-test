@@ -1,0 +1,29 @@
+
+version: 2
+
+models:
+  - name: billable_locations
+    description: "Table of distinct non archived locations and their basic information"
+    columns:
+      - name: location_id
+        tests:
+          - unique
+          - not_null
+  - name: billable_employees
+    description: "Table of billable employees and their weekly scheduled shifts or rests"
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+  - name: billable_accounts
+    description: "Accounts with weekly count of billable employees and locations"
+    columns:
+      - name: account_id
+        tests:
+          - not_null
+  - name: account_weekly_pricing
+    description: "Weekly account level bills"
+    columns:
+      - name: account_id
+        tests:
+          - not_null
