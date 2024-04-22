@@ -42,4 +42,7 @@ select
     round(sum((employees_monthly_bill/30)*7),2) as employees_weekly_bill,
     round(sum((location_monthly_bill/30)*7) + sum((employees_monthly_bill/30)*7),2) as weekly_bill
 from monthly_bill
+where week >= '2023-01-01' 
+-- The new pricing applies only for 2023 onwards.
+-- 2023-01-01 is a Sunday, works well with current week definition
 group by 1,2
